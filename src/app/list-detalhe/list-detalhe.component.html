@@ -1,0 +1,28 @@
+<div id="divList" class="jumbotron container py-2 mb-2">
+    <div id="divLoading" class="my-4 text-center" *ngIf="loading">
+        <fa name="fas fa-spinner" animation="spin" size="2x"></fa>
+    </div>
+
+    <div id="divDetails" class="text-muted text-center" *ngIf="!loading">
+        <div class="row">
+            <div class="col-md-1">
+                <button type="button"
+                        class="btn btn-sm btn-outline-primary"
+                        [routerLink]="['/home']" > 
+                        <fa name="fas fa-arrow-left"></fa>
+                    Voltar  
+                </button>
+            </div>
+            <div class="col-md-6 offset-md-2"><h3>{{detail.name}}</h3></div>
+        </div>
+           
+        <img [src]=detail.sprites.front_default>
+        <img [src]=detail.sprites.back_default>
+        <h6>Altura: {{detail.height}}</h6>
+        <h6>Peso: {{detail.weight}}</h6><hr>
+        <h6>Tipos</h6>
+        <span class="badge badge-success mx-1" *ngFor="let type of detail.types;">{{type.type.name}}</span>
+    </div>
+        
+</div>
+md

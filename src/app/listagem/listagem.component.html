@@ -1,0 +1,38 @@
+<div id="divList" class="jumbotron container py-2 mb-2">
+    <div id="divPagination" class="row">
+        <div class="col-md-12">
+            <nav>
+                <ul class="pagination justify-content-end">
+                    <li class="page-item" (click)="previousPage()"><a class="page-link">Anterior</a></li>
+                    <li class="page-item" (click)="nextPage()"><a class="page-link">Próximo</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <h6 class="text-right">Página: {{page}}</h6>
+
+    <div id="divLoading" class="my-4 text-center" *ngIf="loading">
+        <fa name="fas fa-spinner" animation="spin" size="2x"></fa>
+    </div>
+
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-action" 
+            *ngFor="let pokemon of pokemons; let i = index">
+            <div class="row">
+                <div class="col-md-11">      
+                    <a title="Detalhes" class="text-muted"  [routerLink]="['/detail',pokemon.name]" routerLinkActive="active">{{pokemon.name}}</a>           
+                    <small *ngIf="isFav(pokemon.name)"><fa class="iconFav" name="fas fa-star" size="2x"></fa></small>
+                </div>
+                <div class="col-md-1">
+                    <button type="button"
+                            class="btn btn-sm btn-outline-primary"
+                            (click)="addFav(pokemon.name)">
+                          Favoritar  
+                    </button>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+
