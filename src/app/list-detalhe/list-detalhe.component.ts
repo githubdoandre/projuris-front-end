@@ -14,7 +14,7 @@ export class ListDetalheComponent implements OnInit {
   pokeName; detail; loading = undefined;
 
   ngOnInit() {
-    this.route.paramMap.subscribe(params => {
+    this.route.paramMap.subscribe((params:any) => {
       this.pokeName = params.params.name;
       this.loading = true;
       

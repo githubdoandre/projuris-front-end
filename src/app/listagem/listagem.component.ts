@@ -25,7 +25,7 @@ export class ListagemComponent implements OnInit {
 
   getApi(api){  
     this.loading = true;
-    this.apiService.getPokemons(api).subscribe((data)=>{
+    this.apiService.getPokemons(api).subscribe((data:any)=>{
       this.loading = !this.loading;
       this.pokemons = data.results;
       this.previous = data.previous;
